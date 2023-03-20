@@ -12,7 +12,7 @@ class BookViewSet(ModelViewSet):
     queryset = Book.objects.filter(out_of_books=False)
 
     def get_permissions(self) -> List[BasePermission]:
-        if self.action in ("list", "retrieve"):
+        if self.action in ["list", "retrieve"]:
             permission_classes = [AllowAny]
         else:
             permission_classes = [IsAdminUser]

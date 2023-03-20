@@ -1,10 +1,12 @@
+import asyncio
 from typing import Dict, Any
 
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 
-from borrowing.models import Borrow
 from books.models import Book
+from borrowing.models import Borrow
+from borrowing.telegram_alert import send_message_to_channel
 
 
 class BorrowSerializer(serializers.ModelSerializer):
@@ -18,6 +20,11 @@ class BorrowSerializer(serializers.ModelSerializer):
             book_update.inventory -= 1
             book_update.clean_inventory()
             book_update.save()
+            asyncio.run(
+                send_message_to_channel(
+                    text=f"{validated_data['user']} just borrowed {validated_data['book']} and will return it {validated_data['expected_return']}"
+                )
+            )
             return super().create(validated_data)
         raise ValidationError("This book is unavailable")
 

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from datetime import timedelta
 from pathlib import Path
+from celery.schedules import crontab
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "rest_framework_simplejwt",
+    "django_celery_beat",
     "books",
     "borrowing",
     "user",
@@ -141,4 +143,27 @@ SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=122221),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
     "ROTATE_REFRESH_TOKENS": True,
+}
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Library Service API",
+    "DESCRIPTION": "A service for tracking books & borrowings at your library",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
+}
+
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+
+CELERY_BROKER_URL = "redis://redis:6379"
+CELERY_RESULT_URL = "redis://redis:6379"
+CELERY_TIMEZONE = "Europe/Kiev"
+CELERY_IMPORTS = [
+    "books.tasks",
+]
+CELERY_BEAT_SCHEDULE = {
+    "send_overdue_book_returns": {
+        "task": "books.tasks.send_overdue_book_returns",
+        "schedule": crontab(minute=0, hour=0),
+    },
 }
