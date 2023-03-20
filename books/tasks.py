@@ -18,7 +18,8 @@ def send_overdue_book_returns():
             overdue_days = date.today() - expected_return_date.date()
             asyncio.run(
                 send_message_to_channel(
-                    text=f"{borrowing.user.email} has an overdue book ({borrowing.book.title}). The delay is {overdue_days.days} days."
+                    text=f"{borrowing.user.email} has an overdue book ({borrowing.book.title})."
+                    f"The delay is {overdue_days.days} days."
                 )
             )
     else:

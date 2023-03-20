@@ -22,7 +22,7 @@ class BorrowSerializer(serializers.ModelSerializer):
             book_update.save()
             asyncio.run(
                 send_message_to_channel(
-                    text=f"{validated_data['user']} just borrowed {validated_data['book']} and will return it {validated_data['expected_return']}"
+                    text=f"{validated_data['user']} just borrowed '{validated_data['book']}' and will return it {validated_data['expected_return']}"
                 )
             )
             return super().create(validated_data)

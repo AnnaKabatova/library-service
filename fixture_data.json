@@ -30,7 +30,7 @@
         "cover": false,
         "inventory": 10,
         "daily_fee": "1.00",
-        "need_to_refill": false
+        "out_of_books": false
     }
 },
 {
@@ -42,7 +42,7 @@
         "cover": true,
         "inventory": 5,
         "daily_fee": "2.00",
-        "need_to_refill": false
+        "out_of_books": false
     }
 },
 {
@@ -54,7 +54,7 @@
         "cover": true,
         "inventory": 2,
         "daily_fee": "5.00",
-        "need_to_refill": false
+        "out_of_books": false
     }
 },
 {
@@ -66,7 +66,7 @@
         "cover": false,
         "inventory": 50,
         "daily_fee": "2.50",
-        "need_to_refill": false
+        "out_of_books": false
     }
 },
 {
