@@ -18,6 +18,8 @@ class Migration(migrations.Migration):
     dependencies = [
         ("books", "0001_initial"),
         ("sessions", "0001_initial"),
+        ("borrowing", "0002_initial"),
+        ("user", "0001_initial"),
     ]
 
     operations = [RunPython(func, reverse_func)]
