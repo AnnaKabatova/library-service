@@ -7,7 +7,7 @@ from borrowing.telegram_alert import send_message_to_channel
 
 
 @shared_task
-def send_overdue_book_returns():
+def send_overdue_book_returns() -> None:
     overdue_borrowings = Borrow.objects.filter(expected_return__lt=now().date())
     if overdue_borrowings:
         for borrowing in overdue_borrowings:
