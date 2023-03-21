@@ -1,4 +1,3 @@
-![api_example](https://user-images.githubusercontent.com/80786573/226563827-da2d10fb-79f6-44f8-b04a-b0c6af117bcc.jpg)
 # Library Service API
 - An API service for library management, written in Django REST Framework
 
