@@ -1,3 +1,4 @@
+![api_example](https://user-images.githubusercontent.com/80786573/226563827-da2d10fb-79f6-44f8-b04a-b0c6af117bcc.jpg)
 # Library Service API
 - An API service for library management, written in Django REST Framework
 
@@ -85,3 +86,8 @@ password: 1q2w3e4r
 Header: Authorization
 Value: Bearer <Your access token> 
 ```
+
+## Screenshots
+![telegram](https://user-images.githubusercontent.com/80786573/226563970-b3cb03df-e0a3-43e4-b4d0-de0bbc846047.jpg)
+![api_list](https://user-images.githubusercontent.com/80786573/226563867-26be03bf-5cf4-4e70-a855-db7b7fe0b606.jpg)
+![api_example](https://user-images.githubusercontent.com/80786573/226563953-a513eaea-c871-4f9a-98ca-0a80be27ddca.jpg)
