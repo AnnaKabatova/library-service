@@ -11,11 +11,12 @@ class Book(models.Model):
     cover = models.BooleanField(choices=Enum.choices)
     inventory = models.PositiveIntegerField()
     daily_fee = models.DecimalField(max_digits=5, decimal_places=2)
-    out_of_books = models.BooleanField(default=False)
+
+    @property
+    def out_of_books(self) -> bool:
+        if self.inventory == 0:
+            return True
+        return False
 
     def __str__(self) -> str:
         return self.title
-
-    def clean_inventory(self) -> None:
-        if self.inventory == 0:
-            self.out_of_books = True

@@ -18,7 +18,6 @@ class BorrowSerializer(serializers.ModelSerializer):
         book_update = Book.objects.get(title=validated_data["book"])
         if book_update.inventory > 0:
             book_update.inventory -= 1
-            book_update.clean_inventory()
             book_update.save()
             asyncio.run(
                 send_message_to_channel(

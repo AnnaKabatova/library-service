@@ -25,7 +25,6 @@ class ReturnBookTests(TestCase):
             cover=1,
             inventory=2,
             daily_fee=10.0,
-            out_of_books=False,
         )
         self.borrow = Borrow.objects.create(
             borrow_date=timezone.now().date(),

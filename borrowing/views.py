@@ -69,8 +69,6 @@ class BorrowViewSet(ModelViewSet):
         borrow.save()
         book = borrow.book
         book.inventory += 1
-        if book.inventory >= 1 and book.out_of_books:
-            book.out_of_books = False
         book.save()
         return Response(
             {

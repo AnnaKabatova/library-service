@@ -18,7 +18,6 @@ class BookViewSetTestCase(TestCase):
             cover=1,
             inventory=5,
             daily_fee=1.99,
-            out_of_books=False,
         )
 
     def test_permissions_for_list(self):
@@ -34,7 +33,6 @@ class BookViewSetTestCase(TestCase):
             "cover": 0,
             "inventory": 10,
             "daily_fee": 2.99,
-            "out_of_books": False,
         }
         response = self.client.post(url, data)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
@@ -52,7 +50,6 @@ class BookViewSetTestCase(TestCase):
             "cover": 0,
             "inventory": 10,
             "daily_fee": 2.99,
-            "out_of_books": False,
         }
         response = self.client.put(url, data)
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
