@@ -49,7 +49,6 @@ class BorrowViewSet(ModelViewSet):
         return queryset.filter(user=self.request.user).distinct()
 
     def get_serializer_class(self) -> Type[serializers.Serializer]:
-    
         if self.action in ["list", "retrieve"]:
             return BorrowListSerializer
         return BorrowSerializer
@@ -70,12 +69,13 @@ class BorrowViewSet(ModelViewSet):
         borrow.save()
         book = borrow.book
         book.inventory += 1
-        if book.inventory >= 1 and book.need_to_refill:
-            book.need_to_refill = False
+        if book.inventory >= 1 and book.out_of_books:
+            book.out_of_books = False
         book.save()
         return Response(
-            {"status": "Your book was successfully returned",
-             },
+            {
+                "status": "Your book was successfully returned",
+            },
             status=status.HTTP_200_OK,
         )
 

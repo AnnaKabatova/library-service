@@ -1,19 +1,17 @@
-from django.template.defaultfilters import lower
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient
-from rest_framework.test import APITestCase
+from django.test import TestCase
 
 from books.models import Book
 
 BOOK_URL = reverse("books:books-list")
 
 
-client = APIClient()
-
-
-class BookViewSetTestCase(APITestCase):
+class BookViewSetTestCase(TestCase):
     def setUp(self):
+        self.fixture_data = {}
+        self.client = APIClient()
         self.book = Book.objects.create(
             title="Test Book",
             author="Test Author",
