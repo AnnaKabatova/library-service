@@ -14,9 +14,7 @@ class Book(models.Model):
 
     @property
     def out_of_books(self) -> bool:
-        if self.inventory == 0:
-            return True
-        return False
+        return self.inventory == 0
 
     def __str__(self) -> str:
         return self.title
