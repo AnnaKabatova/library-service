@@ -1,0 +1,106 @@
+[
+{
+    "model": "borrowing.borrow",
+    "pk": 1,
+    "fields": {
+        "borrow_date": "2023-03-08",
+        "expected_return": "2023-04-08",
+        "actual_return": "2023-03-10",
+        "book": 3,
+        "user": 1
+    }
+},
+{
+    "model": "borrowing.borrow",
+    "pk": 2,
+    "fields": {
+        "borrow_date": "2023-03-10",
+        "expected_return": "2023-04-10",
+        "actual_return": "2023-03-20",
+        "book": 3,
+        "user": 1
+    }
+},
+{
+    "model": "books.book",
+    "pk": 1,
+    "fields": {
+        "title": "Le Fantome de l'Opera",
+        "author": "Gaston Leroux",
+        "cover": false,
+        "inventory": 10,
+        "daily_fee": "1.00",
+        "out_of_books": false
+    }
+},
+{
+    "model": "books.book",
+    "pk": 2,
+    "fields": {
+        "title": "Eat, Pray, Love",
+        "author": "Elisabeth Gilbert",
+        "cover": true,
+        "inventory": 5,
+        "daily_fee": "2.00",
+        "out_of_books": false
+    }
+},
+{
+    "model": "books.book",
+    "pk": 3,
+    "fields": {
+        "title": "Un cuento perfecto",
+        "author": "Elisabet Benavent",
+        "cover": true,
+        "inventory": 2,
+        "daily_fee": "5.00",
+        "out_of_books": false
+    }
+},
+{
+    "model": "books.book",
+    "pk": 4,
+    "fields": {
+        "title": "The Orphanage",
+        "author": "Serhiy Zhadan",
+        "cover": false,
+        "inventory": 50,
+        "daily_fee": "2.50",
+        "out_of_books": false
+    }
+},
+{
+    "model": "user.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$wMbY6Dn2iNRBvT7rNlEyT3$CW0CIG/fZMTJaJp5W7ylETVS0xMw25otZNDecIB0T38=",
+        "last_login": "2023-03-20T17:48:13.217Z",
+        "is_superuser": true,
+        "first_name": "Admin",
+        "last_name": "Testenko",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2023-03-20T14:51:45.152Z",
+        "email": "test_admin@admin.com",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "user.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$390000$62GgxixzkC50yToPfW6WOJ$/4ko4F31U/9bze41bZCaUjFEppcb+v2LJ6lAVhmBKyI=",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "User",
+        "last_name": "Testenko",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2023-03-20T17:50:06.274Z",
+        "email": "test_user@user.com",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
